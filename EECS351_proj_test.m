@@ -1,4 +1,6 @@
-[y, Fs] = audioread('metal/metal.00003.au');
+
+
+[y, Fs] = audioread('classical/classical.00009.au');
 player = audioplayer(y, Fs);
 play(player)
 y = y(round(size(y,1)*0.25):round(size(y,1)*0.75));
@@ -13,3 +15,7 @@ L = 22;            % cepstral sine lifter parameter
 hamming = @(N)(0.54-0.46*cos(2*pi*[0:N-1].'/(N-1)));
 [ MFCC, FBE, frames ] = mfcc(y, Fs, Tw, Ts, alpha, hamming, R, M, C, L );
 MFCC_mean = mean(MFCC,2);
+COV = cov(MFCC');
+ZCR(y);
+mean(STE(y,201));
+[C,CM,CSTD,CMAX] = SpecCentroid(y,Fs);
