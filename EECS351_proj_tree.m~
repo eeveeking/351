@@ -1,14 +1,14 @@
 %% Read Data
 % load('bluesDataSet.mat')
 % bluesDataSet = dataSet;
-% load('classicalDataSet.mat')
-% classicalDataSet = dataSet;
+load('classicalDataSet.mat')
+classicalDataSet = dataSet;
 % load('metalDataSet.mat')
 % metalDataSet = dataSet;
-% load('popDataSet.mat')
-% popDataSet = dataSet;
-% load('countryDataSet.mat')
-% countryDataSet = dataSet;
+load('popDataSet.mat')
+popDataSet = dataSet;
+% % load('countryDataSet.mat')
+% % countryDataSet = dataSet;
 % load('discoDataSet.mat')
 % discoDataSet = dataSet;
 
@@ -60,7 +60,7 @@ for i = 1:100
     mfcc_blues = [mfcc_blues; (mfcc_analysis(bluesDataSet(i,:)', Fs))'];
     mfcc_classical = [mfcc_classical; (mfcc_analysis(classicalDataSet(i,:)', Fs))'];
     mfcc_metal = [mfcc_metal; (mfcc_analysis(metalDataSet(i,:)', Fs))'];
-    mfcc_pop = [mfcc_pop; (mfcc_analysis(popDataSet(i,:)', Fs))'];
+    mfcc_pop = [mfcc_pop; (mfcc_analysis(metalPopSet(i,:)', Fs))'];
     mfcc_disco = [mfcc_disco; (mfcc_analysis(discoDataSet(i,:)', Fs))'];
     i
 end
