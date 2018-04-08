@@ -11,5 +11,5 @@ function MFCC_mean = mfcc_analysis(wave, Fs)
     hamming = @(N)(0.54-0.46*cos(2*pi*[0:N-1].'/(N-1)));
     [ MFCC, FBE, frames ] = mfcc(wave, Fs, Tw, Ts, alpha, hamming, R, M, C, L );
     MFCC_mean = mean(MFCC,2);
-    MFCC_mean = MFCC_mean(2:13);
+    MFCC_mean = MFCC_mean(2:5);
 end

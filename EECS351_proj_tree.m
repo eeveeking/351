@@ -1,16 +1,16 @@
 %% Read Data
-% load('bluesDataSet.mat')
-% bluesDataSet = dataSet;
-% load('classicalDataSet.mat')
-% classicalDataSet = dataSet;
-% load('metalDataSet.mat')
-% metalDataSet = dataSet;
-% load('popDataSet.mat')
-% popDataSet = dataSet;
-% load('countryDataSet.mat')
-% countryDataSet = dataSet;
-% load('discoDataSet.mat')
-% discoDataSet = dataSet;
+load('bluesDataSet.mat')
+bluesDataSet = dataSet;
+load('classicalDataSet.mat')
+classicalDataSet = dataSet;
+load('metalDataSet.mat')
+metalDataSet = dataSet;
+load('popDataSet.mat')
+popDataSet = dataSet;
+load('countryDataSet.mat')
+countryDataSet = dataSet;
+load('discoDataSet.mat')
+discoDataSet = dataSet;
 
 bluesResult = [];
 classicalResult = [];
@@ -29,6 +29,12 @@ classicallable = ones(100,1)*2;
 metallabel = ones(100,1)*3;
 poplable = ones(100,1)*4;
 discolabel = ones(100,1)*5;
+
+lpc_blues = ones(100,5);
+lpc_classical = ones(100,5);
+lpc_metal = ones(100,5);
+lpc_pop = ones(100,5);
+lpc_disco = ones(100,5);
 
 Fs = 22050;
 
@@ -56,7 +62,11 @@ for i = 1:100
     metalResult = [metalResult; [CM3,zcr3,ste3]];
     popResult = [popResult; [CM4,zcr4,ste4]];
     discoResult = [discoResult; [CM5,zcr5,ste5]];
-    %% MFCC
+    i
+end
+
+%% MFCC
+for i = 1:100
     mfcc_blues = [mfcc_blues; (mfcc_analysis(bluesDataSet(i,:)', Fs))'];
     mfcc_classical = [mfcc_classical; (mfcc_analysis(classicalDataSet(i,:)', Fs))'];
     mfcc_metal = [mfcc_metal; (mfcc_analysis(metalDataSet(i,:)', Fs))'];
@@ -64,12 +74,29 @@ for i = 1:100
     mfcc_disco = [mfcc_disco; (mfcc_analysis(discoDataSet(i,:)', Fs))'];
     i
 end
-treeResult = [[bluesResult mfcc_blues];[classicalResult mfcc_classical];[metalResult mfcc_metal];...
-[popResult mfcc_pop];[discoResult mfcc_disco]];
+%% LPC
+for i = 1:100
+    a = lpc(bluesDataSet(i,:),5);
+    lpc_blues(i,:) = a(2:6);
+    b = lpc(classicalDataSet(i,:),5);
+    lpc_classical(i,:) = b(2:6);
+    c = lpc(metalDataSet(i,:),5);
+    lpc_metal(i,:) = c(2:6);
+    d = lpc(popDataSet(i,:),5);
+    lpc_pop(i,:) = d(2:6);
+    e = lpc(discoDataSet(i,:),5);
+    lpc_disco(i,:) = e(2:6);
+end
 
-%treeResult = [[bluesResult mfcc_blues];[metalResult mfcc_metal]];
+%treeResult = [[bluesResult mfcc_blues lpc_blues];[classicalResult mfcc_classical lpc_classical];...
+%    [metalResult mfcc_metal lpc_metal];...
+%[popResult mfcc_pop lpc_pop];[discoResult mfcc_disco lpc_disco]];
 
-treelabel = [blueslabel; classicallable; metallabel; poplable; discolabel];
+treeResult = [[classicalResult lpc_classical];...
+   [metalResult lpc_metal];...
+[popResult lpc_pop];[discoResult lpc_disco]];
+
+treelabel = [classicallable; metallabel; poplable; discolabel];
 
 tree = fitctree(treeResult, treelabel,'CrossVal','on');
 
