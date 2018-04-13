@@ -57,11 +57,22 @@ for i = 1:100
     ste3 = mean(STE(metalDataSet(i,:),201));
     ste4 = mean(STE(popDataSet(i,:),201));
     ste5 = mean(STE(discoDataSet(i,:),201));
-    bluesResult = [bluesResult; [CM1,zcr1,ste1]];
-    classicalResult = [classicalResult; [CM2,zcr2,ste2]];
-    metalResult = [metalResult; [CM3,zcr3,ste3]];
-    popResult = [popResult; [CM4,zcr4,ste4]];
-    discoResult = [discoResult; [CM5,zcr5,ste5]];
+    %% Pitch Spectral Acf
+    spec_blue = FeatureSpectralFlux(abs(spectrogram(bluesDataSet(i,:))), Fs);
+    % spec_blue1 = FeatureSpectralRolloff(spectrogram(bluesDataSet(i,:)), Fs);
+    spec_classical = FeatureSpectralFlux(abs(spectrogram(classicalDataSet(i,:))), Fs);
+    % spec_classical1 = FeatureSpectralRolloff(spectrogram(classicalDataSet(i,:)), Fs);
+    spec_metal = FeatureSpectralFlux(abs(spectrogram(metalDataSet(i,:))), Fs);
+    % spec_metal1 = FeatureSpectralRolloff(spectrogram(metalDataSet(i,:)), Fs);
+    spec_pop = FeatureSpectralFlux(abs(spectrogram(popDataSet(i,:))), Fs);
+    % spec_pop1 = FeatureSpectralRolloff(spectrogram(popDataSet(i,:)), Fs);
+    spec_disco = FeatureSpectralFlux(abs(spectrogram(discoDataSet(i,:))), Fs);
+    % spec_disco1 = FeatureSpectralRolloff(spectrogram(discoDataSet(i,:)), Fs);
+    bluesResult = [bluesResult; [CM1,zcr1,ste1,spec_blue]];
+    classicalResult = [classicalResult; [CM2,zcr2,ste2,spec_classical]];
+    metalResult = [metalResult; [CM3,zcr3,ste3,spec_metal]];
+    popResult = [popResult; [CM4,zcr4,ste4,spec_pop]];
+    discoResult = [discoResult; [CM5,zcr5,ste5,spec_disco]];
     i
 end
 
