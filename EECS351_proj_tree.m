@@ -65,7 +65,7 @@ for i = 1:100
     ste4 = mean(STE(popDataSet(i,:),201));
     ste5 = mean(STE(discoDataSet(i,:),201));
     ste6 = mean(STE(jazzDataSet(i,:),201));
-    %% Pitch Spectral Acf
+    %% Spectral flux
     spec_blue = FeatureSpectralFlux(abs(spectrogram(bluesDataSet(i,:))), Fs);
     % spec_blue1 = FeatureSpectralRolloff(spectrogram(bluesDataSet(i,:)), Fs);
     spec_classical = FeatureSpectralFlux(abs(spectrogram(classicalDataSet(i,:))), Fs);
