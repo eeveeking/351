@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Music Genre Classification</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine&amp;v1" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <h1>EECS351 Project</h1>
+        <div class="slogan">Music Genre Classification</div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
+          <li class="current"><a href="index.html">Home</a></li>
+          <li><a href="data.html">Data</a></li>
+          <li><a href="feature.html">Feature Extraction</a></li>
+          <li><a href="result.html">Result</a></li>
+          <li><a href="conclusion.html">Conclusion</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <h3>Project Report</h3>
+        <h4>Want to see our report?</h4>
+        <h5>20th April 2018</h5>
+        <p>Feel free to check our report!<br /><a href="https://drive.google.com/file/d/1CkY_YLVRyA_jF6eXMDAIkDxED7RcbMOb/view?usp=sharing">Click here</a></p>
+        </div>
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+          <h3>Project Code</h3>
+          <h4>Want to see our code?</h4>
+          <h5>20th April 2018</h5>
+          <p>If you would like to see our Matlab code, you can check them in our <a href="https://github.com/eeveeking/351">Github Repo</a>.</p>
+        </div>
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+          <h3>Dataset</h3>
+          <h5>1st July 2015</h5>
+          <p>Interested in our dataset? Want to do some cool stuff for music genre detection? You can find our dataset <a href="http://marsyas.info/">here</a>.</p>
+        </div>
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Welcome to Our Project Website!</h1>
+        <p>Hi All! We are <b>Shiyu Wu</b>, <b>Yiran Shen</b>, <b>Yingchen Wang</b>, and <b>Yueying Li</b>. We are junior and senior students of EECS department at the University of Michigan - Ann Arbor. This website is dedicated to our final project of EECS351 Digital Signal Processing course - Music Genre Classification. Have fun of looking through our website!</p>
+
+        <h1>Introduction</h1>
+        <p>Image somehow in the future, you are a machine learning expert in Sony Music. One day, your boss comes to you and tells you to do some machine learning stuff to improve their music recommender system. Then you start working on it and find out that there're far from enough datasets and end up with labelling musics with different genres manually day and night...</p>
+
+        <p>What if there is a machine that can help you detect the music genre automatically? Here comes our project - <b>Music Genre Classification!</b></p>
+
+        <span class="center"><img src="img/music-genres.png" alt="example graphic" height="300"/></span>
+
+        <p>The main goal of our project is to classify the audio files as different music genres using high-level and low-level audio features with learning methods. </p>
+
+        <p>To be more specific, we mainly explore the following three questions:
+          <ul>
+            <li>Key audio features for genre detection: features like Melfrequency cepstral coefficients(MFCC) and their performance with K-means clustering / KNN / decision tree methods.</li>
+            <li>DSP (digital signal processing) techniques for preprocessing the audio</li>
+            <li>The effectiveness of different features and architectures</li>
+          </ul>
+        </p>
+
+        <p>And we propose two architectures for music genre classifications:
+          <ul>
+            <li>Combination of different level audio features, including Short time energy, Zero-crossing rate, with a decision tree model.</li>
+            <li>MFCC with KNN and K-means clustering.</li>
+          </ul>
+        </p>
+
+        <p>Our experiment shows that both architectures can yield relatively good results with more than 80% whole accuracy for the detection of music genres: Jazz, Classical, Metal and Pop music. Among them, the optimal resut is provided by random forest model with above 86.75% accuracy.</p>
+
+        <p>If you want to check more things in details, feel free to browse other parts!</p>
+
+      </div>
+    </div>
+    <div id="footer">
+      <p>Copyright &copy; <a href="http://www-personal.umich.edu/~shiyuwu/">Shiyu Wu</a> | Yiran Shen | Yingchen Wang | Yueying Li</p>
+    </div>
+  </div>
+</body>
+</html>

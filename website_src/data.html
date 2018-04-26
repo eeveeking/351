@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Data</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine&amp;v1" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <h1>EECS351 Project</h1>
+        <div class="slogan">Music Genre Classification</div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="index.html">Home</a></li>
+          <li class="current"><a href="data.html">Data</a></li>
+          <li><a href="feature.html">Feature Extraction</a></li>
+          <li><a href="result.html">Result</a></li>
+          <li><a href="conclusion.html">Conclusion</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <h3>Project Report</h3>
+        <h4>Want to see our report?</h4>
+        <h5>20th April 2018</h5>
+        <p>Feel free to check our report!<br /><a href="https://drive.google.com/file/d/1CkY_YLVRyA_jF6eXMDAIkDxED7RcbMOb/view?usp=sharing">Click here</a></p>
+        </div>
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+          <h3>Project Code</h3>
+          <h4>Want to see our code?</h4>
+          <h5>20th April 2018</h5>
+          <p>If you would like to see our Matlab code, you can check them in our <a href="https://github.com/eeveeking/351">Github Repo</a>.</p>
+        </div>
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+          <h3>Dataset</h3>
+          <h5>1st July 2015</h5>
+          <p>Interested in our dataset? Want to do some cool stuff for music genre detection? You can find our dataset <a href="http://marsyas.info/">here</a>.</p>
+        </div>
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Data</h1>
+        <h2>Dataset</h2>
+        <p>It turns out that the Music Genre Recognition remains a compelling problem, and there are several very nice and well-formatted dataset available online. In our project, we use a dataset from <a href="http://marsyas.info/">Marsyas</a> (Music Analysis, Retrieval, and Synthesis for Audio Signals), an open source software framework for audio processing with specific emphasis on Music Information Retrieval Applications. </p>
+
+        <p>The dataset consists of 1000 <strong>.au</strong> files (a file extension used for audio files), split in 10 different music genres (Disco, Metal, Pop, Hip Hop, Rock, Blues, Classical, Country, Jazz, Reggae), with 100 samples of 30 seconds for each genre. Each sample is a 22050Hz Mono 16-bit audio file.</p>
+
+        <h2>Data Processing</h2>
+        <p>The main tool we use to do DSP for audio files, and further implement machine learning methods is <b>Matlab</b>. We use <b>Matlab</b> and its built-in functions, including <strong>audioread()</strong>, to read in the audio file dataset, and dump it as <strong>.mat</strong> file for further processing. For any detail, please refer to the <b>Matlab</b> code.</p>
+
+      </div>
+    </div>
+    <div id="footer">
+      <p>Copyright &copy; <a href="http://www-personal.umich.edu/~shiyuwu/">Shiyu Wu</a> | Yiran Shen | Yingchen Wang | Yueying Li</p>
+    </div>
+  </div>
+</body>
+</html>

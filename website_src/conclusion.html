@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Conclusion</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine&amp;v1" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async>
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <h1>EECS351 Project</h1>
+        <div class="slogan">Music Genre Classification</div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="index.html">Home</a></li>
+          <li><a href="data.html">Data</a></li>
+          <li><a href="feature.html">Feature Extraction</a></li>
+          <li><a href="result.html">Result</a></li>
+          <li class="current"><a href="conclusion.html">Conclusion</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <h3>Project Report</h3>
+        <h4>Want to see our report?</h4>
+        <h5>20th April 2018</h5>
+        <p>Feel free to check our report!<br /><a href="https://drive.google.com/file/d/1CkY_YLVRyA_jF6eXMDAIkDxED7RcbMOb/view?usp=sharing">Click here</a></p>
+        </div>
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+          <h3>Project Code</h3>
+          <h4>Want to see our code?</h4>
+          <h5>20th April 2018</h5>
+          <p>If you would like to see our Matlab code, you can check them in our <a href="https://github.com/eeveeking/351">Github Repo</a>.</p>
+        </div>
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+          <h3>Dataset</h3>
+          <h5>1st July 2015</h5>
+          <p>Interested in our dataset? Want to do some cool stuff for music genre detection? You can find our dataset <a href="http://marsyas.info/">here</a>.</p>
+        </div>
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Conclusion</h1>
+        <h2>Discussion</h2>
+        <p>From the above result part, it can be seen that the whole accuracy for music genre classification is around 70% to 80% for both decision tree and KNN methods.</p>
+
+        <p>There are pros and cons for these two methods. Both methods are not able to be implemented in real time since we need to process the information of whole piece of music. And theoretically, the complexity of the decision tree is lighter since we could store the pretrained model. And the complexity of the KNN grows quadratically with the window size (Tw), linearly with the signal length (N) and its efficiency is worse when the data set is large. If we have a relatively small data set with a large number of classes, it would be suggested to use KNN. Otherwise, the decision tree is preferred. For both methods, the performance of classifying Jazz and Disco genre music is not good enough, whose accuracy is around 50% to 60%.</p>
+
+        <p>Several potential improving methods are discussed below. 
+          <ul>
+            <li>Add more specific audio features. In this project, we use several spectral analysis techniques to extract the song features. For example, we calculate spectral flux for each song, which represents the rate of change of spectral amplitude and thus indicates the intensity of the music. This feature may work well for classifying classical and pop music. However, it may perform poorly for classifying pop and disco musics because the intensity of music is not specific enough for classification. We need to find out more specific audio features, like chord features.</li>
+            <li>Construct audio features with proper dimension. One problem arises from adding more specific audio features is the size of extracted features. Adding more specific audio features will lead to larger and more complex inputs for further learning methods, which will become a large overhead of computational cost. A good trade-off between extracted features and computational cost should be further studied.</li>
+            <li>Prune and add weights to audio features. In our study, we found that the simple combination of different features will not certainly improve the performance, although the separate feature will lead to better performance. For example, combining LPC with spectral flux and combining LPC with spectral rolloff will both give a good result. However, combining LPC and spectral flux with spectral rolloff will otherwise hurt the performance. 
+            Therefore, it should be careful when choosing possible combination of different features.
+
+            <br />On one hand, it's better to combine features from different perspectives and prune unnecessary audio features to reduce computational overhead. For example, we do not use MFCC in decision tree model since LPC is already used to filter out noise and transmit spectral envelope information. On the other hand, we can add weights to different audio features for further learning methods, thus improving the classification accuracy between similar genres like pop and disco.</li>
+            <li>Increase the size of dataset. In practical application of machine learning methods, the size of training set is usually very large, typically more than 10 thousand samples. However, we only use 100 well-labelled samples for each genre for feature extraction and training. More audio files with well-labelled genre can potentially improve the predicted accuracy.</li>
+            <li>Use other learning methods. Machine learning methods used in this project are decision tree, K-Nearest Neighbor, and K-Means clustering. Other well-known classification methods, including Multi-Class Support Vector Machine, Neural Networks, can be further explored.</li>
+          </ul>
+
+        </p>
+
+        <h2>Conclusion</h2>
+        <p>This project studies several methods of music genre classification. We study several audio feature extraction methods using digital signal processing methods, including MFCC (mel-frequency cepstral coefficients), ZCR (zero-crossing rate), etc. And we propose two main architectures for music genre classification. One is the combination with different level features with decision tree or random forest model, and the other one is the combination with a series of MFCC coefficients with KNN and K-Means clustering. We quantitatively compare the performance of classifying jazz, classical, metal and pop music using two architectures, and find that the random forest model gives a better result with 86.75% accuracy. The second architecture could also achieve similar performance, compromising computational cost with large window length.</p>
+
+        <p>Some analysis of the model performance has been discussed above. And the main reason resulting in poor accuracy of classifying similar music genres, like classical and jazz, is a lack of good predictors. Several improving methods have also been discussed above, including add more specific features, training on bigger dataset. Besides that, there are many points worth consideration in future improvement, including trade-off between accuracy and computational cost, choice of learning method.</p> 
+
+        <p>Generally speaking, in this project, we propose two architectures for music genre classification, based on digital signal processing techniques and machine learning methods. Both architectures give descent results with more than 80% whole accuracy.</p>
+
+      </div>
+    </div>
+    <div id="footer">
+      <p>Copyright &copy; <a href="http://www-personal.umich.edu/~shiyuwu/">Shiyu Wu</a> | Yiran Shen | Yingchen Wang | Yueying Li</p>
+    </div>
+  </div>
+</body>
+</html>
